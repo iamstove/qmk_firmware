@@ -23,6 +23,9 @@ enum custom_keycodes {
 #define KC_RASE RAISE
 #define KC_RST RESET
 #define KC_BL_S BL_STEP
+#define MT1 MT(MOD_LCTL, KC_TAB)
+#define CAD LCTL(LALT(KC_DEL))
+#define TSK LCTL(LSFT(KC_ESC))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -30,13 +33,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      ESC , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,BSPC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     TAB , Q  , W  , F  , P  , G  ,                J  , L  , U  , Y  ,SCLN,DEL ,
+     TAB , Q  , W  , F  , P  , G  ,                J  , L  , U  , Y  ,SCLN,QUOT,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     RASE, A  , R  , S  , T  , D  ,                H  , N  , E  , I  , O  ,QUOT,
+     LCTL, A  , R  , S  , T  , D  ,                H  , N  , E  , I  , O  , ENT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSFT, Z  , X  , C  , V  , B  ,SPC ,     ENT , K  , M  ,COMM,DOT ,SLSH,RGHT,
+     LSFT, Z  , X  , C  , V  , B  ,BSPC,     SPC , K  , M  ,COMM,DOT ,SLSH,RGHT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LCTL,LOWR,SPC ,         ENT ,LGUI,LALT
+                       LCTL,LOWR,BSPC,         SPC ,RASE,LALT
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -44,13 +47,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      TILD,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,BSPC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     RST , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,    ,
+     LPRN,    , UP , 3  , 4  ,RPRN,               LBRC, P7 , P8 , P9 ,EQL ,RBRC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     DEL ,    ,LEFT,RGHT, UP ,LBRC,               RBRC, P4 , P5 , P6 ,PLUS,PIPE,
+         ,LEFT,DOWN,RGHT,    ,    ,               UNDS, P4 , P5 , P6 ,PLUS,PIPE,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     BL_S,    ,    ,    ,DOWN,LCBR,LPRN,     RPRN,RCBR, P1 , P2 , P3 ,MINS,    ,
+         ,    ,    ,    ,    ,    ,DEL ,     ENT ,    , P1 , P2 , P3 ,MINS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                           ,    ,DEL ,         DEL ,    , P0 
+                           ,    ,DEL ,         ENT ,    , P0 
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -62,9 +65,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,MPRV,MNXT,VOLU,PGUP,UNDS,               EQL ,HOME,    ,    ,    ,BSLS,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     MUTE,MSTP,MPLY,VOLD,PGDN,MINS,    ,         ,PLUS,END ,    ,    ,    ,    ,
+     MUTE,MSTP,MPLY,VOLD,PGDN,MINS,DEL ,         ,PLUS,END ,    ,    ,TSK ,CAD ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                           ,    ,    ,             ,    ,    
+                           ,    ,DEL ,             ,    ,    
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -95,7 +98,7 @@ void persistent_default_layer_set(uint16_t default_layer) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case QWERTY:
+    case COLEMAK:
       if (record->event.pressed) {
         #ifdef AUDIO_ENABLE
           PLAY_SONG(tone_qwerty);
