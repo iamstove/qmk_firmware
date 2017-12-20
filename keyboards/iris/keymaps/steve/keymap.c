@@ -24,8 +24,8 @@ enum custom_keycodes {
 #define KC_RST RESET
 #define KC_BL_S BL_STEP
 #define MT1 MT(MOD_LCTL, KC_TAB)
-#define CAD LCTL(LALT(KC_DEL))
-#define TSK LCTL(LSFT(KC_ESC))
+#define KC_CAD LCTL(LALT(KC_DEL))
+#define KC_TSK LCTL(LSFT(KC_ESC))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -103,7 +103,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         #ifdef AUDIO_ENABLE
           PLAY_SONG(tone_qwerty);
         #endif
-        persistent_default_layer_set(1UL<<_QWERTY);
+        persistent_default_layer_set(1UL<<_COLEMAK);
       }
       return false;
       break;
