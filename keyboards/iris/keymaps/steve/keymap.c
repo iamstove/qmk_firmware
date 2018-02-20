@@ -31,13 +31,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_COLEMAK] = KC_KEYMAP(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     ESC , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,BSPC,
+     ESC , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,MINS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     TAB , Q  , W  , F  , P  , G  ,                J  , L  , U  , Y  ,SCLN,QUOT,
+     TAB , Q  , W  , F  , P  , G  ,                J  , L  , U  , Y  ,SCLN,PIPE,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     LCTL, A  , R  , S  , T  , D  ,                H  , N  , E  , I  , O  , ENT,
+     LCTL, A  , R  , S  , T  , D  ,                H  , N  , E  , I  , O  ,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSFT, Z  , X  , C  , V  , B  ,BSPC,     SPC , K  , M  ,COMM,DOT ,SLSH,RGHT,
+     LSFT, Z  , X  , C  , V  , B  ,BSPC,     SPC , K  , M  ,COMM,DOT ,SLSH,RSFT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                        LCTL,LOWR,BSPC,         SPC ,RASE,LALT
   //                  `----+----+----'        `----+----+----'
@@ -45,9 +45,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = KC_KEYMAP(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     TILD,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,BSPC,
+     TILD,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,TILD,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     LPRN,    , UP , 3  , 4  ,RPRN,               LBRC, P7 , P8 , P9 ,EQL ,RBRC,
+     LPRN,    , UP ,    ,    ,RPRN,               LBRC, P7 , P8 , P9 ,EQL ,RBRC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,LEFT,DOWN,RGHT,    ,    ,               UNDS, P4 , P5 , P6 ,PLUS,PIPE,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
