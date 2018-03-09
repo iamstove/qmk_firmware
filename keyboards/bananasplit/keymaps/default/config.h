@@ -20,5 +20,6 @@
 #include "../../config.h"
 
 // place overrides here
+#define PERMISSIVE_HOLD
 
 #endif
